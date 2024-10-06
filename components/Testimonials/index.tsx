@@ -9,7 +9,7 @@ const testimonialData: Testimonial[] = [
     designation: "Student of Amrita Vishwa Vidyapeetham",
     content:
       "LapProFix is a game-changer! The seamless booking process and the convenience of getting my laptop serviced at home is exactly what I've been looking for.",
-    image: "/images/testimonials/auth-02.png",  // Updated path
+    image: "/images/testimonials/auth-03.png",  // Updated path
     star: 5,
   },
   {
@@ -18,7 +18,7 @@ const testimonialData: Testimonial[] = [
     designation: "Student of Amrita Vishwa Vidyapeetham",
     content:
       "The added chatbot feature makes the entire experience even smoother. Highly recommend for anyone needing quick and reliable laptop repairs!",
-    image: "/images/testimonials/auth-02.png",  // Updated path
+    image: "/images/testimonials/auth-03.png",  // Updated path
     star: 4,
   },
   {
