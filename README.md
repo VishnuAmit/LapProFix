@@ -1,76 +1,74 @@
 # LapProFix
 
-*LapProFix* is a full-stack web application designed to provide users with a convenient way to book laptop repair services from certified service centers. The platform emphasizes user experience by allowing for easy service booking, real-time progress tracking, and interactive support through a built-in chatbot. 
+_LapProFix_ is a full-stack web application designed to provide users with a convenient way to book laptop repair services from certified service centers. The platform emphasizes user experience by allowing for easy service booking, real-time progress tracking, and interactive support through a built-in chatbot.
 
 ## Table of Contents
+
 - [Features](#features)
 - [Technologies Used](#technologies-used)
 - [Contributing](#contributing)
 - [Installation](#installation)
 
+### Installation
+
+1. **Clone the Repository**
+
+   ```bash
+   git clone https://github.com/VishnuAmit/LapProFix.git
+   cd medi-connect
+   ```
+
+2. **Install Dependencies**
+
+   ```bash
+   npm install
+   ```
+
+3. **Server Start**
+
+   ```bash
+   npm run dev
+   ```
+
+4. **Backend Configuration**
+
+- Open the `.env` file and update the following variables:
+
+```env
+MONGODB_URI="your mongodb string"
+```
+
+## Usage
+
+**Start the Server**
+
+The application should be running at `http://localhost:3000`.
+
+**Access the Application**
+
+Open your web browser and navigate to `http://localhost:3000` to access the Medi-Connect(Application Booking System).
+
 ## Features
-- *User Authentication*: Users can sign up and log in securely to manage their bookings.
-- *Dashboard*: An intuitive dashboard displaying service options, user profile, and booking history.
-- *Service Booking*: 
+
+- _User Authentication_: Users can sign up and log in securely to manage their bookings.
+- _Dashboard_: An intuitive dashboard displaying service options, user profile, and booking history.
+- _Service Booking_:
   - Instant Book for quick service requests.
   - Specialized services for Windows, Apple, and other laptop types.
-- *Technician Scheduling*: 
-  - Automated scheduling of technicians based on the user's issues reported during the booking process. 
+- _Technician Scheduling_:
+  - Automated scheduling of technicians based on the user's issues reported during the booking process.
   - Users can select specific time slots for technician visits, enhancing convenience and flexibility.
-- *Progress Tracking*: 
-  - A visual progress bar indicating the current status of the service request: 
+- _Progress Tracking_:
+  - A visual progress bar indicating the current status of the service request:
     - Booking
     - Assigning
     - Service Progress
     - Complete
-- *Chatbot Assistance*: 
+- _Chatbot Assistance_:
   - A built-in chatbot to assist users with common queries and provide real-time support.
 
-
 ## Technologies Used
-- *Frontend*: 
-  - *Next.js*: For building dynamic user interfaces.
-  - *Axios*: For making HTTP requests to the backend.
 
-- *Backend*: 
-  - *Node.js*: JavaScript runtime for building the server.
-  - *Express.js*: Web framework for Node.js to handle requests and responses.
-  - *MongoDB*: NoSQL database for storing user and booking information.
-  - *Mongoose*: ODM for MongoDB to define models and schemas.
-- *Authentication*: 
-  - *JWT (JSON Web Tokens)*: For user authentication and secure session management.
-- *Deployment*: 
-  - *Vercel*: For hosting the application.
-- *Other Libraries/Tools*: 
-  - *Socket.IO*: For real-time communication, if implemented for chat features.
-  - *dotenv*: For managing environment variables.
-  - *Bcrypt.js*: For hashing user passwords.
-
-## Contribution
-We welcome contributions to LapProFix! If you'd like to contribute, please follow these steps:
-
-## Installation
-To set up *LapProFix* locally, follow these steps:
-
-1. *Clone/Fork the repository*:
-   ```bash
-   git clone https://github.com/yourusername/lapprofix.git 
-
-2. *Install Packages* 
-
-   Navigate to the project directory and install the necessary packages using:
-   ``` bash
-   npm install i
-
-3. *Run the Project*
-   ```bash
-   npm run dev
-
-4. *Setup MongDB*
-   
-Install mongodb compass and create a database named lapprofix and collection name as newUser. Get that connection string and paste it in ```lib, config.js``` to connect to the database via mongoose. 
-
-5. *Verify the connection*
-   
-Once done, try sign up and sign in. After successfull sign in, it should direct you to dashboard page.
-
+- _Frontend_:
+  - _Next.js_: For building dynamic user interfaces.
+  - _Axios_: For making HTTP requests to the backend.
