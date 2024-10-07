@@ -66,3 +66,9 @@ To set up *LapProFix* locally, follow these steps:
    ```bash
    npm run dev
 
+4. Setup MongDB
+Install mongodb compass and create a database named lapprofix and collection name as newUser. Get that connection string and paste it in ```lib, config.js``` to connect to the database via mongoose. 
+
+5. Verify the connection
+Once done, try sign up and sign in. After successfull sign in, it should direct you to dashboard page.
+
