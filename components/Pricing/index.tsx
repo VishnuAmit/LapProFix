@@ -63,7 +63,7 @@ const Pricing = () => {
         <div className="grid grid-cols-1 gap-x-8 gap-y-10 md:grid-cols-2 lg:grid-cols-3">
           <PricingBox
             packageName="Basic"
-            price={isMonthly ? "1000" : "1500"}
+            price={isMonthly ? "800" : "6500"}
             duration={isMonthly ? "mo" : "yr"}
             subtitle="Ideal for routine maintenance and minor repairs, this package includes diagnostics, software updates, and virus removal at an affordable rate."
           >
@@ -77,7 +77,7 @@ const Pricing = () => {
           </PricingBox>
           <PricingBox
             packageName="Standard"
-            price={isMonthly ? "2000" : "2500"}
+            price={isMonthly ? "1000" : "11000"}
             duration={isMonthly ? "mo" : "yr"}
             subtitle="Covers hardware repairs, component replacements, and system optimization, offering a balanced approach for more complex issues at a mid-range price"
           >
@@ -91,7 +91,7 @@ const Pricing = () => {
           </PricingBox>
           <PricingBox
             packageName="Premium"
-            price={isMonthly ? "3000" : "3500"}
+            price={isMonthly ? "1200" : "12000"}
             duration={isMonthly ? "mo" : "yr"}
             subtitle="A comprehensive solution with diagnostics, extensive repairs, and priority support for top-tier care at a higher price point."
           >

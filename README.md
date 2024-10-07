@@ -1,46 +1,68 @@
-# Startup - Free Next.js Startup Website Template
+# LapProFix
 
-Startup free, open-source, and premium-quality startup website template for Next.js comes with everything you need to launch a startup, business, or SaaS website, including all essential sections, components, and pages.
+*LapProFix* is a full-stack web application designed to provide users with a convenient way to book laptop repair services from certified service centers. The platform emphasizes user experience by allowing for easy service booking, real-time progress tracking, and interactive support through a built-in chatbot. 
 
-If you're looking for a high-quality and visually appealing, feature-rich Next.js Template for your next startup, SaaS, or business website, this is the perfect choice and starting point for you!
+## Table of Contents
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Contributing](#contributing)
+- [Installation](#installation)
 
-### ✨ Key Features
-- Crafted for Startup and SaaS Business
-- Next.js 13 and Tailwind CSS
-- All Essential Business Sections and Pages
-- High-quality and Clean Design
-- Dark and Light Version
-- TypeScript Support
-and Much More ...
-
-### [🔥 Get Startup Pro](https://nextjstemplates.com/templates/saas-starter-startup)
-
-[![Startup Pro](https://cdn.nextjstemplates.com/Startup-Pro---Next.js-Starter-Template-for-SaaS-Startups-282e26f7-f543-4ae4-a777-ac306c08cce8.png)](https://nextjstemplates.com/templates/saas-starter-startup)
-
-Startup Pro - Expertly crafted for fully-functional, high-performing SaaS startup websites. Comes with with Authentication, Database, Blog, and all the essential integrations necessary for SaaS business sites.
-
-
-### [🚀 View Free Demo](https://startup.nextjstemplates.com/)
-
-### [🚀 View Pro Demo](https://startup-pro.nextjstemplates.com/)
-
-### [📦 Download](https://nextjstemplates.com/templates/startup)
-
-### [🔥 Get Pro](https://nextjstemplates.com/templates/saas-starter-startup)
-
-### [🔌 Documentation](https://nextjstemplates.com/docs)
-
-### ⚡ Deploy Now
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FNextJSTemplates%2Fstartup-nextjs)
-
-[![Deploy with Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/NextJSTemplates/startup-nextjs)
+## Features
+- *User Authentication*: Users can sign up and log in securely to manage their bookings.
+- *Dashboard*: An intuitive dashboard displaying service options, user profile, and booking history.
+- *Service Booking*: 
+  - Instant Book for quick service requests.
+  - Specialized services for Windows, Apple, and other laptop types.
+- *Technician Scheduling*: 
+  - Automated scheduling of technicians based on the user's issues reported during the booking process. 
+  - Users can select specific time slots for technician visits, enhancing convenience and flexibility.
+- *Progress Tracking*: 
+  - A visual progress bar indicating the current status of the service request: 
+    - Booking
+    - Assigning
+    - Service Progress
+    - Complete
+- *Chatbot Assistance*: 
+  - A built-in chatbot to assist users with common queries and provide real-time support.
 
 
-### 📄 License
-Startup is 100% free and open-source, feel free to use with your personal and commercial projects.
+## Technologies Used
+- *Frontend*: 
+  - *Next.js*: For building dynamic user interfaces.
+  - *Axios*: For making HTTP requests to the backend.
 
-### 💜 Support
-If you like the template, please star this repository to inspire the team to create more stuff like this and reach more users like you!
+- *Backend*: 
+  - *Node.js*: JavaScript runtime for building the server.
+  - *Express.js*: Web framework for Node.js to handle requests and responses.
+  - *MongoDB*: NoSQL database for storing user and booking information.
+  - *Mongoose*: ODM for MongoDB to define models and schemas.
+- *Authentication*: 
+  - *JWT (JSON Web Tokens)*: For user authentication and secure session management.
+- *Deployment*: 
+  - *Vercel*: For hosting the application.
+- *Other Libraries/Tools*: 
+  - *Socket.IO*: For real-time communication, if implemented for chat features.
+  - *dotenv*: For managing environment variables.
+  - *Bcrypt.js*: For hashing user passwords.
 
-### ✨ Explore and Download - Free [Next.js Templates](https://nextjstemplates.com)
+## Contribution
+We welcome contributions to LapProFix! If you'd like to contribute, please follow these steps:
+
+## Installation
+To set up *LapProFix* locally, follow these steps:
+
+1. *Clone/Fork the repository*:
+   ```bash
+   git clone https://github.com/yourusername/lapprofix.git 
+
+2. *Install Packages* 
+
+   Navigate to the project directory and install the necessary packages using:
+   ``` bash
+   npm install i
+
+3. Run the Project
+   ```bash
+   npm run dev
+
