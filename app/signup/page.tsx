@@ -8,12 +8,13 @@ const SignupPage = () => {
   const [name, setName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
+  const [errorMessage, setErrorMessage] = useState<string>(""); // State for error message
   const router = useRouter(); // Initialize useRouter
 
   // Handle form submission
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(name, email, password);
+    setErrorMessage(""); // Clear any existing error message
 
     // API call to submit the form data
     axios
@@ -27,7 +28,13 @@ const SignupPage = () => {
         // Redirect to login page on successful signup
         router.push("/signin"); // Redirect to the login page
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        if (err.response && err.response.status === 409) {
+          setErrorMessage("User already exists"); // Set custom error message for 409
+        } else {
+          setErrorMessage("An error occurred. Please try again."); // Default error message
+        }
+      });
   };
 
   return (
@@ -128,6 +135,11 @@ const SignupPage = () => {
                     className="border-stroke dark:text-body-color-dark dark:shadow-two w-full rounded-sm border bg-[#f8f8f8] px-6 py-3 text-base text-body-color outline-none transition-all duration-300 focus:border-primary dark:border-transparent dark:bg-[#2C303B] dark:focus:border-primary dark:focus:shadow-none"
                   />
                 </div>
+                {errorMessage && (
+                  <p className="my-4 text-center text-sm text-red-500">
+                    {errorMessage}
+                  </p>
+                )}
                 <button
                   type="submit"
                   className="w-full bg-primary text-white py-3 rounded-lg hover:bg-primary-dark"

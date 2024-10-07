@@ -33,7 +33,7 @@ const SigninPage = () => {
         console.error(response.error);
         setError(response.error);
       } else {
-        router.push("/blog");
+        router.push("/dashboard");
       }
     } catch (e) {
       console.error(e);
