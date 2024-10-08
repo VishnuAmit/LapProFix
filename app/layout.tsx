@@ -43,6 +43,7 @@ import Header from "@/components/Header";
 import ScrollToTop from "@/components/ScrollToTop";
 import { Inter } from "next/font/google";
 import { usePathname } from "next/navigation"; // Use usePathname from next/navigation
+import GProvider from "@/components/GProvider";
 import "node_modules/react-modal-video/css/modal-video.css";
 import "../styles/index.css";
 
@@ -62,12 +63,14 @@ export default function RootLayout({
     <html suppressHydrationWarning lang="en">
       <head />
       <body className={`bg-[#FCFCFC] dark:bg-black ${inter.className}`}>
+        <GProvider>
         <Providers>
           {isHomepage && <Header />} {/* Render Header only on homepage */}
           {children}
           {isHomepage && <Footer />} {/* Render Footer only on homepage */}
           {isHomepage &&<ScrollToTop />} 
         </Providers>
+        </GProvider>
       </body>
     </html>
   );

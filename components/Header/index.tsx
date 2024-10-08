@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 // import ThemeToggler from "./ThemeToggler";
 import menuData from "./menuData";
+import { signOut, useSession } from "next-auth/react";
 
 const Header = () => {
   // Navbar toggle
@@ -12,6 +13,8 @@ const Header = () => {
   const navbarToggleHandler = () => {
     setNavbarOpen(!navbarOpen);
   };
+
+  const {data:session} = useSession();
 
   // Sticky Navbar
   const [sticky, setSticky] = useState(false);
@@ -156,7 +159,20 @@ const Header = () => {
                   </ul>
                 </nav>
               </div>
-              <div className="flex items-center justify-end pr-16 lg:pr-0">
+              {session ? (
+                <div>
+                  <Link
+                  href="/signin"
+                  onClick={() => signOut()} 
+                  className={`hidden px-7 py-3 text-base font-medium ${
+                    sticky ? "text-black" : "text-white"
+                  } hover:opacity-70 md:block`}
+                  >
+                    Sign Out
+                  </Link>
+                </div>
+              ):(
+                <div className="flex items-center justify-end pr-16 lg:pr-0">
                 <Link
                   href="/signin"
                   className={`hidden px-7 py-3 text-base font-medium ${
@@ -175,6 +191,9 @@ const Header = () => {
                   <ThemeToggler />
                 </div> */}
               </div>
+              )
+              
+            }
             </div>
           </div>
         </div>
