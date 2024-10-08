@@ -15,13 +15,6 @@ const NewsLatterBox = () => {
       </h3>
       <p className="mb-11 border-b border-body-color border-opacity-25 pb-11 text-base leading-relaxed text-body-color dark:border-white dark:border-opacity-25">
       Stay informed about the latest news, offers, and tips from LapProFix! Sign up now to receive updates directly to your inbox and never miss out on valuable insights and promotions.
-
-
-
-
-
-
-
       </p>
       <div>
         <input
