@@ -32,7 +32,7 @@ const SigninPage = () => {
 
   useEffect(()=>{
     if(session){
-      router.push("/");
+      router.push("/dashboard");
     }
   },[session])
 

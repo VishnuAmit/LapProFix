@@ -37,7 +37,7 @@ const SignupPage = () => {
 
 useEffect(()=>{
   if(session){
-    router.push("/");
+    router.push("/signin");
   }
 },[session])
 
@@ -116,7 +116,7 @@ useEffect(()=>{
                 </span>
                 {providers && providers.map((provider) => (
                 <button key={provider.id} onClick={() => signIn(provider.id)}>
-                    Sign in with {provider.name}
+                    Sign up with {provider.name}
                 </button>
             ))}
               </button>
