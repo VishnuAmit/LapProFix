@@ -2,8 +2,10 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { CCard, CCardImage, CCardBody } from "@coreui/react";
-import { signOut,useSession } from "next-auth/react";
+import { signOut, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import FAQPage from "@/components/Faq/Faqs";
+
 
 const Dashboard = () => {
   const {data:session} = useSession();
@@ -156,6 +158,7 @@ const Dashboard = () => {
               <button
                 id="userDropdownButton1"
                 onClick={()=>toggleDropdown()}
+                data-dropdown-toggle="userDropdown1"
                 type="button"
                 className="dark:hover:bg-gray-700 dark:text-white inline-flex items-center justify-center rounded-lg p-2 text-sm font-medium leading-none text-gray-900 hover:bg-gray-100"
               >
@@ -195,6 +198,7 @@ const Dashboard = () => {
               </button>
 
               {/* User Dropdown */}
+
               {dropdownVisible && (
                 <div
                 className="fixed right-9 top-16 dark:divide-gray-600 dark:bg-gray-700 z-10  w-56 divide-y divide-gray-100 overflow-hidden overflow-y-auto rounded-lg bg-white antialiased shadow"
@@ -220,6 +224,14 @@ const Dashboard = () => {
                     Sign Out
                   </button>
                 </div>
+
+              <div
+                id="userDropdown1"
+                className="dark:divide-gray-600 dark:bg-gray-700 z-10 hidden w-56 divide-y divide-gray-100 overflow-hidden overflow-y-auto rounded-lg bg-white antialiased shadow"
+              >
+                {/* User dropdown content */}
+                {/* ... (User dropdown content) ... */}
+
               </div>
               )}
 
@@ -354,6 +366,8 @@ const Dashboard = () => {
             </CCardBody>
           </CCard>
         </div>
+
+        <FAQPage/>
       </div>
     </div>
   );
