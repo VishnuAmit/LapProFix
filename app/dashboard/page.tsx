@@ -1,10 +1,22 @@
 "use client";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { CCard, CCardImage, CCardBody } from "@coreui/react";
+import { signOut, useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
 import FAQPage from "@/components/Faq/Faqs";
 
+
 const Dashboard = () => {
+  const {data:session} = useSession();
+  const router = useRouter();
+
+  useEffect(()=>{
+    if(!session) {
+      router.push("/");
+    }
+  },[session]);
+
   useEffect(() => {
     // Simulate clicking the cart button on component mount
     const cartButton = document.getElementById("myCartDropdownButton1");
@@ -12,6 +24,12 @@ const Dashboard = () => {
       cartButton.click();
     }
   }, []);
+
+  const [dropdownVisible, setDropdownVisible] = useState<boolean>(false);
+
+  const toggleDropdown = (): void => {
+    setDropdownVisible(prev=>!prev);
+  };
 
   return (
     <div>
@@ -139,6 +157,7 @@ const Dashboard = () => {
 
               <button
                 id="userDropdownButton1"
+                onClick={()=>toggleDropdown()}
                 data-dropdown-toggle="userDropdown1"
                 type="button"
                 className="dark:hover:bg-gray-700 dark:text-white inline-flex items-center justify-center rounded-lg p-2 text-sm font-medium leading-none text-gray-900 hover:bg-gray-100"
@@ -179,13 +198,42 @@ const Dashboard = () => {
               </button>
 
               {/* User Dropdown */}
+
+              {dropdownVisible && (
+                <div
+                className="fixed right-9 top-16 dark:divide-gray-600 dark:bg-gray-700 z-10  w-56 divide-y divide-gray-100 overflow-hidden overflow-y-auto rounded-lg bg-white antialiased shadow"
+              >
+                <ul
+                  className="dark:text-gray-200 py-2 text-sm text-gray-700"
+                  aria-labelledby="userDropdownButton1"
+                >
+                  <li>
+                    <a
+                      href="#"
+                      className="dark:hover:bg-gray-600 dark:hover:text-white block px-4 py-2 hover:bg-gray-100"
+                    >
+                      Dashboard
+                    </a>
+                  </li>
+                </ul>
+                <div className="py-2">
+                  <button
+                    onClick={() => signOut()} // Replace with your actual sign-out function
+                    className="dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white block w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-gray-100"
+                  >
+                    Sign Out
+                  </button>
+                </div>
+
               <div
                 id="userDropdown1"
                 className="dark:divide-gray-600 dark:bg-gray-700 z-10 hidden w-56 divide-y divide-gray-100 overflow-hidden overflow-y-auto rounded-lg bg-white antialiased shadow"
               >
                 {/* User dropdown content */}
                 {/* ... (User dropdown content) ... */}
+
               </div>
+              )}
 
               <button
                 type="button"
