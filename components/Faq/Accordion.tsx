@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 
 interface AccordionItem {
@@ -24,12 +23,22 @@ const Accordion: React.FC<AccordionProps> = ({ items }) => {
           <div
             className="accordion-header cursor-pointer flex justify-between items-center py-3 px-4 border-b border-gray-300"
             onClick={() => toggleAccordion(index)}
+            aria-expanded={openIndex === index}
+            aria-controls={`accordion-body-${index}`}
+            role="button"
+            tabIndex={0}
+            onKeyPress={(e) => {
+              if (e.key === 'Enter') toggleAccordion(index);
+            }}
           >
             <h2 className="font-medium">{item.question}</h2>
             <span>{openIndex === index ? '▲' : '▼'}</span>
           </div>
           {openIndex === index && (
-            <div className="accordion-body py-3 px-4">
+            <div
+              id={`accordion-body-${index}`}
+              className="accordion-body py-3 px-4 transition-all duration-300"
+            >
               {item.answer}
             </div>
           )}
