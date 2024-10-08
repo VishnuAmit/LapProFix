@@ -1,8 +1,9 @@
 "use client";
 import axios from "axios";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation"; // Import useRouter
+import { signIn, signOut, useSession, getProviders } from "next-auth/react";
 
 const SignupPage = () => {
   const [name, setName] = useState<string>("");
@@ -10,6 +11,35 @@ const SignupPage = () => {
   const [password, setPassword] = useState<string>("");
   const [errorMessage, setErrorMessage] = useState<string>(""); // State for error message
   const router = useRouter(); // Initialize useRouter
+
+  interface ProviderType {
+    name: string;
+    id: string; 
+}
+
+  const { data: session } = useSession();
+  const [providers, setProviders] = useState<ProviderType[] | null>(null);
+
+  useEffect(() => {
+    const fetchProviders = async () => {
+        const response = await getProviders();
+        if (response) {
+            const providersArray = Object.values(response).map((provider: any) => ({
+                name: provider.name,
+                id: provider.id,
+            }));
+            setProviders(providersArray);
+        }
+    };
+    fetchProviders();
+}, []);
+
+
+useEffect(()=>{
+  if(session){
+    router.push("/signin");
+  }
+},[session])
 
   // Handle form submission
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -84,7 +114,11 @@ const SignupPage = () => {
                     </defs>
                   </svg>
                 </span>
-                Sign in with Google
+                {providers && providers.map((provider) => (
+                <button key={provider.id} onClick={() => signIn(provider.id)}>
+                    Sign up with {provider.name}
+                </button>
+            ))}
               </button>
               <form onSubmit={onSubmit}>
                 <div className="mb-8">
