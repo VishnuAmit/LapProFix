@@ -1,58 +1,8 @@
-# LapProFix
-
-_LapProFix_ is a full-stack web application designed to provide users with a convenient way to book laptop repair services from certified service centers. The platform emphasizes user experience by allowing for easy service booking, real-time progress tracking, and interactive support through a built-in chatbot.
-
-## Table of Contents
-
-- [Features](#features)
-- [Technologies Used](#technologies-used)
-- [Contributing](#contributing)
-- [Installation](#installation)
-
-### Installation
-
-1. **Clone the Repository**
-
-   ```bash
-   git clone https://github.com/VishnuAmit/LapProFix.git
-   cd medi-connect
-   ```
-
-2. **Install Dependencies**
-
-   ```bash
-   npm install
-   ```
-
-3. **Server Start**
-
-   ```bash
-   npm run dev
-   ```
-
-4. **Backend Configuration**
-
-- Open the `.env` file and update the following variables:
-
-```env
-MONGODB_URI="your mongodb string"
-```
-
-## Usage
-
-**Start the Server**
-
-The application should be running at `http://localhost:3000`.
-
-## Technologies Used
-
-- _Frontend_:
-  - _Next.js_: For building dynamic user interfaces.
-  - _Axios_: For making HTTP requests to the backend.
-
 # 🌟 Hacktoberfest 2024 Contribution Guide for LapProFix
 
 Welcome to the **LapProFix** repository! We are thrilled that you're interested in contributing to this project. 🌐💻
+
+Deployed Project: [LapProFix]
 
 ## 🚀 How to Contribute
 
@@ -114,6 +64,12 @@ There are several ways you can help improve **Medi-Connect**:
 ## 📜 Contribution Guidelines
 
 To maintain quality and consistency, please adhere to the following guidelines:
+
+1. **Code Style**: Follow the coding style used throughout the project. Clean, readable code with comments is always appreciated.
+2. **Commits**: Write meaningful commit messages.
+3. **Pull Requests**: Make sure PRs are focused, well-explained, and reference any issues they address.
+4. **Testing**: Ensure that your changes are well-tested locally and don’t break existing functionality.
+5. **Environment Setup**: Make sure your `.env` file and MongoDB connection are properly configured.
 
 ## 🎉 Hacktoberfest 2024 Participation
 
