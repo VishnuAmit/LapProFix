@@ -1,0 +1,17 @@
+@keyframes slide {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+  
+  .infinite-scroll {
+    width: 200%; /* To account for two sets of testimonials */
+  }
+  
+  .animate-slide {
+    animation: slide 20s linear infinite; /* Adjust duration as needed */
+  }
+  
