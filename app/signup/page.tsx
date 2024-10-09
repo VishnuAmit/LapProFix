@@ -114,11 +114,21 @@ useEffect(()=>{
                     </defs>
                   </svg>
                 </span>
-                {providers && providers.map((provider) => (
-                <button key={provider.id} onClick={() => signIn(provider.id)}>
-                    Sign up with {provider.name}
-                </button>
-            ))}
+                {providers && (
+                    <>
+                      {providers.map(
+                        (provider) =>
+                          provider.id !== "credentials" && (
+                            <button
+                              key={provider.id}
+                              onClick={() => signIn(provider.id)}
+                            >
+                              Sign in with {provider.name}
+                            </button>
+                          ),
+                      )}
+                    </>
+                  )}
               </button>
               <form onSubmit={onSubmit}>
                 <div className="mb-8">
