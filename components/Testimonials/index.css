@@ -1,0 +1,46 @@
+:root {
+    --scroll-speed: 15s;
+    --testimonial-width: 300px;
+    --testimonial-gap: 16px;
+  }
+  
+  .testimonial-slider {
+    overflow: hidden;
+    cursor: grab;
+    -webkit-overflow-scrolling: touch; /* For smoother scrolling on iOS devices */
+  }
+  
+  .testimonial-slider:active {
+    cursor: grabbing;
+  }
+  
+  .testimonial-track {
+    display: flex;
+    width: calc(3 * (var(--testimonial-width) + var(--testimonial-gap)) * 3);
+    animation: scroll var(--scroll-speed) linear infinite;
+  }
+  
+  .testimonial-item {
+    flex: 0 0 var(--testimonial-width);
+    margin-right: var(--testimonial-gap);
+  }
+  
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(calc(-1 * (var(--testimonial-width) + var(--testimonial-gap)) * 3));
+    }
+  }
+  
+  .testimonial-slider:hover .testimonial-track,
+  .testimonial-slider:active .testimonial-track {
+    animation-play-state: paused;
+  }
+  
+  @media (prefers-reduced-motion: reduce) {
+    .testimonial-track {
+      animation: none;
+    }
+  }
