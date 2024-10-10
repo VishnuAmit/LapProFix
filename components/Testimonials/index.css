@@ -1,17 +1,24 @@
-@keyframes slide {
-    0% {
-      transform: translateX(0);
-    }
-    100% {
-      transform: translateX(-100%);
-    }
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
   }
-  
-  .infinite-scroll {
-    width: 200%; /* To account for two sets of testimonials */
+  100% {
+    transform: translateX(-50%);
   }
-  
-  .animate-slide {
-    animation: slide 20s linear infinite; /* Adjust duration as needed */
+}
+
+.animate-scroll {
+  animation: scroll 10s linear infinite; /* Default speed */
+}
+
+.animate-scroll:hover {
+  animation-play-state: paused; /* Pause on hover */
+}
+
+/* Increase rotation speed in mobile view */
+@media (max-width: 768px) {
+  /* Adjust max-width as needed */
+  .animate-scroll {
+    animation: scroll 5s linear infinite; /* Faster speed for mobile */
   }
-  
+}

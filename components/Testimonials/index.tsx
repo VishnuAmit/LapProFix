@@ -1,9 +1,10 @@
-"use client";  // Mark this file as a Client Component
+"use client";
 
 import { Testimonial } from "@/types/testimonial";
 import SectionTitle from "../Common/SectionTitle";
 import SingleTestimonial from "./SingleTestimonial";
-import { useEffect, useRef } from "react";
+import "./index.css";
+import { useEffect } from "react";
 
 const testimonialData: Testimonial[] = [
   {
@@ -12,7 +13,7 @@ const testimonialData: Testimonial[] = [
     designation: "Student of Amrita Vishwa Vidyapeetham",
     content:
       "LapProFix is a game-changer! The seamless booking process and the convenience of getting my laptop serviced at home is exactly what I've been looking for.",
-    image: "/images/testimonials/auth-03.png",
+    image: "/images/testimonials/author-01.png",
     star: 5,
   },
   {
@@ -21,7 +22,7 @@ const testimonialData: Testimonial[] = [
     designation: "Student of Amrita Vishwa Vidyapeetham",
     content:
       "The added chatbot feature makes the entire experience even smoother. Highly recommend for anyone needing quick and reliable laptop repairs!",
-    image: "/images/testimonials/auth-03.png",
+    image: "/images/testimonials/author-02.png",
     star: 4,
   },
   {
@@ -29,36 +30,22 @@ const testimonialData: Testimonial[] = [
     name: "Vaas",
     designation: "IIT Madras",
     content:
-      "The real-time updates on repair progress kept me informed throughout, which was a great touch.Their technicians are highly skilled and professional.",
-    image: "/images/testimonials/auth-03.png",
+      "The real-time updates on repair progress kept me informed throughout, which was a great touch. Their technicians are highly skilled and professional.",
+    image: "/images/testimonials/author-03.png",
     star: 3,
   },
 ];
 
 const Testimonials = () => {
-  const containerRef = useRef<HTMLDivElement>(null);
-
   useEffect(() => {
-    const container = containerRef.current;
-    if (container) {
-      let scrollAmount = 0;
-      const scrollSpeed = 8;
-
-      const scrollTestimonials = () => {
-        scrollAmount += scrollSpeed;
-        if (scrollAmount >= container.scrollWidth / 2) {
-          scrollAmount = 0;
-        }
-        container.scrollLeft = scrollAmount;
-        requestAnimationFrame(scrollTestimonials);
-      };
-
-      scrollTestimonials();
-    }
+    console.log("Image paths:");
+    testimonialData.forEach((testimonial, index) => {
+      console.log(`${index + 1}: ${testimonial.image}`);
+    });
   }, []);
 
   return (
-    <section className="dark:bg-bg-color-dark bg-gray-light relative z-10 py-16 md:py-20 lg:py-28">
+    <section className="dark:bg-bg-color-dark relative z-10 bg-gray-light py-16 md:py-20 lg:py-28">
       <div className="container">
         <SectionTitle
           title="Customer reviews"
@@ -66,18 +53,14 @@ const Testimonials = () => {
           center
         />
 
-        {/* Wrapping the testimonials in a scrollable container */}
-        <div
-          ref={containerRef}
-          className="flex gap-x-8 overflow-x-hidden whitespace-nowrap"
-          style={{ display: 'flex', gap: '2rem', overflowX: 'hidden', whiteSpace: 'nowrap' }}
-        >
-          {/* Duplicating testimonials for a continuous effect */}
-          {[...testimonialData, ...testimonialData].map((testimonial, index) => (
-            <div key={index} className="inline-block w-full">
-              <SingleTestimonial testimonial={testimonial} />
-            </div>
-          ))}
+        <div className="relative overflow-hidden">
+          <div className="animate-scroll flex">
+            {[...testimonialData, ...testimonialData].map((testimonial, index) => (
+              <div key={index} className="mx-4 flex-shrink-0 w-[300px]">
+                <SingleTestimonial testimonial={testimonial} />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
