@@ -45,15 +45,20 @@ const Dashboard = () => {
             <div className="flex items-center space-x-8">
               <div className="shrink-0">
                 <a href="#" title="">
-                  <Image
-                    className="dark:hidden block h-8 w-auto"
-                    src="https://flowbite.s3.amazonaws.com/blocks/e-commerce/logo-full.svg"
-                    alt=""
-                  />
+                <Image
+  className="dark:hidden block h-8 w-auto"
+  src="https://flowbite.s3.amazonaws.com/blocks/e-commerce/logo-full.svg"
+  alt=""
+  width={32}  
+  height={32} 
+/>
+
                   <Image
                     className="dark:block hidden h-8 w-auto"
                     src="https://flowbite.s3.amazonaws.com/blocks/e-commerce/logo-full-dark.svg"
                     alt=""
+                    width={32}  // Specify the width you want (adjust as needed)
+                    height={32}
                   />
                 </a>
               </div>
@@ -273,7 +278,7 @@ const Dashboard = () => {
                 {" "}
                 {/* Adjust the margin as needed */}
                 <Link
-                  href="/instant-book"
+                  href="services/instantbook"
                   style={{
                     textAlign: "center",
                     display: "block",
@@ -297,7 +302,7 @@ const Dashboard = () => {
                 {" "}
                 {/* Adjust the margin as needed */}
                 <Link
-                  href="/instant-book"
+                  href="services/windows"
                   style={{
                     textAlign: "center",
                     display: "block",
@@ -321,7 +326,7 @@ const Dashboard = () => {
                 {" "}
                 {/* Adjust the margin as needed */}
                 <Link
-                  href="/instant-book"
+                  href="services/apple"
                   style={{
                     textAlign: "center",
                     display: "block",
@@ -345,7 +350,7 @@ const Dashboard = () => {
                 {" "}
                 {/* Adjust the margin as needed */}
                 <Link
-                  href="/instant-book"
+                  href="services/others"
                   style={{
                     textAlign: "center",
                     display: "block",
