@@ -5,17 +5,18 @@ import { CCard, CCardImage, CCardBody } from "@coreui/react";
 import { signOut, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import FAQPage from "@/components/Faq/Faqs";
-
+import Image from "next/image";
 
 const Dashboard = () => {
-  const {data:session} = useSession();
+  const { data: session, status } = useSession();
   const router = useRouter();
 
-  useEffect(()=>{
-    if(!session) {
+  useEffect(() => {
+    if (status === "loading") return;
+    if (!session) {
       router.push("/");
     }
-  },[session]);
+  }, [session, status, router]);
 
   useEffect(() => {
     // Simulate clicking the cart button on component mount
@@ -28,8 +29,12 @@ const Dashboard = () => {
   const [dropdownVisible, setDropdownVisible] = useState<boolean>(false);
 
   const toggleDropdown = (): void => {
-    setDropdownVisible(prev=>!prev);
+    setDropdownVisible((prev) => !prev);
   };
+
+  if (status === "loading") {
+    return;
+  }
 
   return (
     <div>
@@ -39,13 +44,13 @@ const Dashboard = () => {
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-8">
               <div className="shrink-0">
-                <a href="#" title="" className="">
-                  <img
+                <a href="#" title="">
+                  <Image
                     className="dark:hidden block h-8 w-auto"
                     src="https://flowbite.s3.amazonaws.com/blocks/e-commerce/logo-full.svg"
                     alt=""
                   />
-                  <img
+                  <Image
                     className="dark:block hidden h-8 w-auto"
                     src="https://flowbite.s3.amazonaws.com/blocks/e-commerce/logo-full-dark.svg"
                     alt=""
@@ -157,7 +162,7 @@ const Dashboard = () => {
 
               <button
                 id="userDropdownButton1"
-                onClick={()=>toggleDropdown()}
+                onClick={() => toggleDropdown()}
                 data-dropdown-toggle="userDropdown1"
                 type="button"
                 className="dark:hover:bg-gray-700 dark:text-white inline-flex items-center justify-center rounded-lg p-2 text-sm font-medium leading-none text-gray-900 hover:bg-gray-100"
@@ -198,41 +203,30 @@ const Dashboard = () => {
               </button>
 
               {/* User Dropdown */}
-
               {dropdownVisible && (
-                <div
-                className="fixed right-9 top-16 dark:divide-gray-600 dark:bg-gray-700 z-10  w-56 divide-y divide-gray-100 overflow-hidden overflow-y-auto rounded-lg bg-white antialiased shadow"
-              >
-                <ul
-                  className="dark:text-gray-200 py-2 text-sm text-gray-700"
-                  aria-labelledby="userDropdownButton1"
-                >
-                  <li>
-                    <a
-                      href="#"
-                      className="dark:hover:bg-gray-600 dark:hover:text-white block px-4 py-2 hover:bg-gray-100"
-                    >
-                      Dashboard
-                    </a>
-                  </li>
-                </ul>
-                <div className="py-2">
-                  <button
-                    onClick={() => signOut()} // Replace with your actual sign-out function
-                    className="dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white block w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-gray-100"
+                <div className="dark:divide-gray-600 dark:bg-gray-700 fixed right-9 top-16 z-10 w-56 divide-y divide-gray-100 overflow-hidden overflow-y-auto rounded-lg bg-white antialiased shadow">
+                  <ul
+                    className="dark:text-gray-200 py-2 text-sm text-gray-700"
+                    aria-labelledby="userDropdownButton1"
                   >
-                    Sign Out
-                  </button>
+                    <li>
+                      <a
+                        href="#"
+                        className="dark:hover:bg-gray-600 dark:hover:text-white block px-4 py-2 hover:bg-gray-100"
+                      >
+                        Dashboard
+                      </a>
+                    </li>
+                  </ul>
+                  <div className="py-2">
+                    <button
+                      onClick={() => signOut()} // Replace with your actual sign-out function
+                      className="dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white block w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-gray-100"
+                    >
+                      Sign Out
+                    </button>
+                  </div>
                 </div>
-
-              <div
-                id="userDropdown1"
-                className="dark:divide-gray-600 dark:bg-gray-700 z-10 hidden w-56 divide-y divide-gray-100 overflow-hidden overflow-y-auto rounded-lg bg-white antialiased shadow"
-              >
-                {/* User dropdown content */}
-                {/* ... (User dropdown content) ... */}
-
-              </div>
               )}
 
               <button
@@ -367,7 +361,7 @@ const Dashboard = () => {
           </CCard>
         </div>
 
-        <FAQPage/>
+        <FAQPage />
       </div>
     </div>
   );
