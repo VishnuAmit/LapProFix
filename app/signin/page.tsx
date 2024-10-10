@@ -35,7 +35,7 @@ const SigninPage = () => {
     if (session) {
       router.push("/dashboard");
     }
-  }, [session]);
+  }, [router, session]);
 
   async function onSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
