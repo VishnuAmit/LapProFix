@@ -5,6 +5,7 @@ import { CCard, CCardImage, CCardBody } from "@coreui/react";
 import { signOut, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import FAQPage from "@/components/Faq/Faqs";
+import Image from "next/image";
 
 const Dashboard = () => {
   const { data: session, status } = useSession();
@@ -44,12 +45,12 @@ const Dashboard = () => {
             <div className="flex items-center space-x-8">
               <div className="shrink-0">
                 <a href="#" title="">
-                  <img
+                  <Image
                     className="dark:hidden block h-8 w-auto"
                     src="https://flowbite.s3.amazonaws.com/blocks/e-commerce/logo-full.svg"
                     alt=""
                   />
-                  <img
+                  <Image
                     className="dark:block hidden h-8 w-auto"
                     src="https://flowbite.s3.amazonaws.com/blocks/e-commerce/logo-full-dark.svg"
                     alt=""
