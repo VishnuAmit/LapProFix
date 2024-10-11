@@ -1,0 +1,70 @@
+services:
+  nextjs:
+    container_name: lapfix-app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "${PORT:-3000}:3000"
+    environment:
+      - MONGODB_URI=mongodb://mongodb:27017/lapfix
+    depends_on:
+      - mongodb
+    networks:
+      - lapfix-network
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 2048M
+        reservations:
+          memory: 512M
+      endpoint_mode: 'vip'
+      mode: 'replicated'
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+        delay: 1s
+        max_attempts: 3
+        window: 120s
+  
+  mongodb:
+    container_name: lapfix-mongo
+    image: mongo:latest
+    ports:
+     - "${MONGO_PORT:-27017}:27017"
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=${MONGODB_USERNAME}
+      - MONGO_INITDB_ROOT_PASSWORD=${MONGODB_PASSWORD}
+    volumes:
+      - lapfix_data:/data/db
+    networks:
+      - lapfix-network
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 2048M
+        reservations:
+          memory: 512M
+      endpoint_mode: 'vip'
+      mode: 'replicated'
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+        delay: 1s
+        max_attempts: 3
+        window: 120s
+    healthcheck:
+      test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 40s
+
+networks:
+  lapfix-network:
+    driver: bridge
+
+volumes:
+  lapfix_data:
