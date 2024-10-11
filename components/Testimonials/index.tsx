@@ -50,21 +50,21 @@ const Testimonials = () => {
       setIsDragging(true);
       setStartX(e.pageX - slider.offsetLeft);
       setScrollLeft(slider.scrollLeft);
-      slider.style.cursor = 'grabbing';
-      slider.style.userSelect = 'none';
+      slider.style.cursor = "grabbing";
+      slider.style.userSelect = "none";
     };
 
     const handleMouseUp = () => {
       setIsDragging(false);
-      slider.style.cursor = 'grab';
-      slider.style.removeProperty('user-select');
+      slider.style.cursor = "grab";
+      slider.style.removeProperty("user-select");
     };
 
     const handleMouseMove = (e: MouseEvent) => {
       if (!isDragging) return;
       e.preventDefault();
       const x = e.pageX - slider.offsetLeft;
-      const walk = (x - startX) * 2;
+      const walk = (x - startX) * 1.5;
       slider.scrollLeft = scrollLeft - walk;
     };
 
@@ -72,16 +72,16 @@ const Testimonials = () => {
       setIsDragging(false);
     };
 
-    slider.addEventListener('mousedown', handleMouseDown);
-    slider.addEventListener('mouseleave', handleMouseLeave);
-    document.addEventListener('mouseup', handleMouseUp);
-    document.addEventListener('mousemove', handleMouseMove);
+    slider.addEventListener("mousedown", handleMouseDown);
+    slider.addEventListener("mouseleave", handleMouseLeave);
+    document.addEventListener("mouseup", handleMouseUp);
+    document.addEventListener("mousemove", handleMouseMove);
 
     return () => {
-      slider.removeEventListener('mousedown', handleMouseDown);
-      slider.removeEventListener('mouseleave', handleMouseLeave);
-      document.removeEventListener('mouseup', handleMouseUp);
-      document.removeEventListener('mousemove', handleMouseMove);
+      slider.removeEventListener("mousedown", handleMouseDown);
+      slider.removeEventListener("mouseleave", handleMouseLeave);
+      document.removeEventListener("mouseup", handleMouseUp);
+      document.removeEventListener("mousemove", handleMouseMove);
     };
   }, [isDragging, startX, scrollLeft]);
 
@@ -96,11 +96,14 @@ const Testimonials = () => {
 
         <div className="testimonial-slider" ref={sliderRef}>
           <div className="testimonial-track">
-            {[...testimonialData, ...testimonialData, ...testimonialData].map((testimonial, index) => (
-              <div key={`${testimonial.id}-${index}`} className="testimonial-item">
-                <SingleTestimonial testimonial={testimonial} />
-              </div>
-            ))}
+            {Array(50)
+              .fill(testimonialData)
+              .flat()
+              .map((testimonial, index) => (
+                <div key={`${testimonial.id}-${index}`} className="testimonial-item">
+                  <SingleTestimonial testimonial={testimonial} />
+                </div>
+              ))}
           </div>
         </div>
       </div>
