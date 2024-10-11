@@ -11,7 +11,6 @@ const starIcon = (
 const SingleTestimonial = ({ testimonial }: { testimonial: Testimonial }) => {
   const { star, name, image, content, designation } = testimonial;
 
-  // Explicitly define the type of ratingIcons as React.ReactNode[]
   const ratingIcons: React.ReactNode[] = [];
   for (let index = 0; index < star; index++) {
     ratingIcons.push(
@@ -22,24 +21,28 @@ const SingleTestimonial = ({ testimonial }: { testimonial: Testimonial }) => {
   }
 
   return (
-    <div className="w-full">
+    <div className="flex h-full flex-col">
+      {" "}
+      {/* Set flex direction to column and full height */}
       <div
-        className="wow fadeInUp shadow-two dark:shadow-three dark:hover:shadow-gray-dark rounded-sm bg-white p-8 duration-300 hover:shadow-one dark:bg-dark lg:px-5 xl:px-8"
+        className="wow fadeInUp dark:shadow-three dark:hover:shadow-gray-dark dark:bg-dark flex-grow rounded-sm bg-white p-6 shadow-two duration-300 hover:shadow-one lg:px-5 xl:px-8"
         data-wow-delay=".1s"
       >
         <div className="mb-5 flex items-center space-x-1">{ratingIcons}</div>
-        <p className="mb-8 border-b border-body-color border-opacity-10 pb-8 text-base leading-relaxed text-body-color dark:border-white dark:border-opacity-10 dark:text-white">
+        <p className="dark:border-white dark:border-opacity-10 dark:text-white mb-8 overflow-hidden overflow-ellipsis whitespace-normal border-b border-body-color border-opacity-10 pb-8 text-base leading-relaxed text-body-color">
           “{content}
         </p>
         <div className="flex items-center">
-          <div className="relative mr-4 h-[50px] w-full max-w-[50px] overflow-hidden rounded-full">
-            <Image src={image} alt={name} fill />
+          <div className="relative mr-4 h-[50px] w-[50px] overflow-hidden rounded-full">
+            <Image src={image} alt={name} layout="fill" objectFit="cover" />
           </div>
           <div className="w-full">
-            <h3 className="mb-1 text-lg font-semibold text-dark dark:text-white lg:text-base xl:text-lg">
+            <h3 className="dark:text-white mb-1 text-lg font-semibold text-dark lg:text-base xl:text-lg">
               {name}
             </h3>
-            <p className="text-sm text-body-color">{designation}</p>
+            <p className="overflow-clip text-sm text-body-color">
+              {designation}
+            </p>
           </div>
         </div>
       </div>
