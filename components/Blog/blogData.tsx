@@ -9,7 +9,7 @@ const blogData: Blog[] = [
     image: "/images/blog/blog-01.jpg",
     author: {
       name: "Vishal",
-      image: "/images/blog/-01.png",
+      image: "/images/blog/author-01.png",
       designation: "Student",
     },
     tags: ["Desktop"],
@@ -23,7 +23,7 @@ const blogData: Blog[] = [
     image: "/images/blog/blog-02.jpg",
     author: {
       name: "Vishnu",
-      image: "/images/blog/or-02.png",
+      image: "/images/blog/author-02.png",
       designation: "Student",
     },
     tags: ["Windows"],
@@ -37,7 +37,7 @@ const blogData: Blog[] = [
     image: "/images/blog/blog-03.jpg",
     author: {
       name: "Vaas",
-      image: "/images/blog/ar-03.png",
+      image: "/images/blog/author-03.png",
       designation: "Student",
     },
     tags: ["Laptop"],

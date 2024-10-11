@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation";
 import FAQPage from "@/components/Faq/Faqs";
 import Image from "next/image";
 import { FaMapMarkerAlt } from 'react-icons/fa';
-import { FiPhoneCall } from 'react-icons/fi'; 
+import { FiPhoneCall } from 'react-icons/fi';
 
 const Dashboard = () => {
   const { data: session, status } = useSession();
@@ -53,14 +53,17 @@ const Dashboard = () => {
                   <Image
                     className="dark:hidden block h-8 w-auto"
                     src="https://flowbite.s3.amazonaws.com/blocks/e-commerce/logo-full.svg"
-                    // width={200}  // To prevent error
-                    // height={50}  // To prevent error
                     alt=""
+                    width={32}
+                    height={32}
                   />
+
                   <Image
                     className="dark:block hidden h-8 w-auto"
                     src="https://flowbite.s3.amazonaws.com/blocks/e-commerce/logo-full-dark.svg"
                     alt=""
+                    width={32}  // Specify the width you want (adjust as needed)
+                    height={32}
                   />
                 </a>
               </div>
@@ -356,7 +359,7 @@ const Dashboard = () => {
                 {" "}
                 {/* Adjust the margin as needed */}
                 <Link
-                  href="/instant-book"
+                  href="services/instantbook"
                   style={{
                     textAlign: "center",
                     display: "block",
@@ -380,7 +383,7 @@ const Dashboard = () => {
                 {" "}
                 {/* Adjust the margin as needed */}
                 <Link
-                  href="/instant-book"
+                  href="services/windows"
                   style={{
                     textAlign: "center",
                     display: "block",
@@ -404,7 +407,7 @@ const Dashboard = () => {
                 {" "}
                 {/* Adjust the margin as needed */}
                 <Link
-                  href="/instant-book"
+                  href="services/apple"
                   style={{
                     textAlign: "center",
                     display: "block",
@@ -428,7 +431,7 @@ const Dashboard = () => {
                 {" "}
                 {/* Adjust the margin as needed */}
                 <Link
-                  href="/instant-book"
+                  href="services/others"
                   style={{
                     textAlign: "center",
                     display: "block",
