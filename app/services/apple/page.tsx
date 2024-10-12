@@ -7,7 +7,6 @@ import DownloadDoneIcon from '@mui/icons-material/DownloadDone';
 import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
 import RemoveShoppingCartIcon from '@mui/icons-material/RemoveShoppingCart';
 
-import Snackbar from '@mui/material/Snackbar';
 import Search from "@/components/Search"
 import { useServiceContext} from '../themeProvider';
 import Toastr from '@/components/Toast';

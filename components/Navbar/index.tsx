@@ -1,6 +1,6 @@
 "use client"
 import Image from 'next/image';
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Link from "next/link";
 import { signOut } from 'next-auth/react';
 import Cart from "@/components/Cart"
@@ -8,6 +8,13 @@ import Cart from "@/components/Cart"
 const Navbar = () => {
   const [dropdownVisible, setDropdownVisible] = useState<boolean>(false);
   const [open, setOpen] = useState<boolean>(false);
+
+  useEffect(() => {
+    setOpen(false);
+  }, [])
+
+  console.log(open);
+  
 
   const toggleDropdown = (): void => {
     setDropdownVisible((prev) => !prev);

@@ -80,4 +80,5 @@ export default function RootLayout({
 
 import { Providers } from "./providers";
 import ServiceProvider from "./services/themeProvider";
+import Navbar from "@/components/Navbar";
 

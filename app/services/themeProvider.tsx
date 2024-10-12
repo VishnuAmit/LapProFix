@@ -19,9 +19,7 @@ export default function ServiceProvider({ children }: { children: ReactNode }) {
     return (
         <div>
             <ServiceContext.Provider value={{ products, setProducts }}>
-                <Navbar />
                 {children}
-                
             </ServiceContext.Provider>
         </div>
     );

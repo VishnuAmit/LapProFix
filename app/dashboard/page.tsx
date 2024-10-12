@@ -5,6 +5,7 @@ import { CCard, CCardImage, CCardBody } from "@coreui/react";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import FAQPage from "@/components/Faq/Faqs";
+import Navbar from "@/components/Navbar";
 
 const Dashboard = () => {
   const { data: session, status } = useSession();
@@ -37,6 +38,7 @@ const Dashboard = () => {
 
   return (
     <div>
+      <Navbar />
       {/* Cards Section */}
       <div className="container mx-auto px-4 py-8 text-black">
         {/* Cards Row */}
