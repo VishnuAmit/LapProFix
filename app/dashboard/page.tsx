@@ -60,7 +60,7 @@ const Dashboard = () => {
               src="https://img.freepik.com/premium-vector/online-reservation-booking-icon-black-vector-graphics_1178600-116.jpg"
             />
             <CCardBody>
-              <div style={{ marginTop: "10px" }} className="border-2">
+              <div style={{ marginTop: "10px" }} >
                 {" "}
                 {/* Adjust the margin as needed */}
                 <Link
@@ -84,7 +84,7 @@ const Dashboard = () => {
               src="https://cdn.pixabay.com/photo/2018/05/08/21/29/windows-3384024_1280.png"
             />
             <CCardBody>
-              <div style={{ marginTop: "10px" }} className="border-2">
+              <div style={{ marginTop: "10px" }} >
                 {" "}
                 {/* Adjust the margin as needed */}
                 <Link
@@ -108,7 +108,7 @@ const Dashboard = () => {
               src="https://cdn.pixabay.com/photo/2018/05/08/21/28/apple-3384010_1280.png"
             />
             <CCardBody>
-              <div style={{ marginTop: "10px" }} className="border-2">
+              <div style={{ marginTop: "10px" }} >
                 {" "}
                 {/* Adjust the margin as needed */}
                 <Link
@@ -132,7 +132,7 @@ const Dashboard = () => {
               src="https://cdn.pixabay.com/photo/2021/08/23/22/40/refresh-6568981_1280.png"
             />
             <CCardBody>
-              <div style={{ marginTop: "10px" }} className="border-2">
+              <div style={{ marginTop: "10px" }} >
                 {" "}
                 {/* Adjust the margin as needed */}
                 <Link
