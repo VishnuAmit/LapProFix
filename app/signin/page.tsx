@@ -205,7 +205,7 @@ const SigninPage = () => {
                     </div>
                     <div>
                       <a
-                        href="#0"
+                        href="/forgot-password"
                         className="text-sm font-medium text-primary hover:underline"
                       >
                         Forgot Password?
