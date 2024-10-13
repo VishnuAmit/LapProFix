@@ -5,7 +5,13 @@ import { CCard, CCardImage, CCardBody } from "@coreui/react";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import FAQPage from "@/components/Faq/Faqs";
+
 import Navbar from "@/components/Navbar";
+
+import Image from "next/image";
+import { FaMapMarkerAlt } from 'react-icons/fa';
+import { FiPhoneCall} from 'react-icons/fi';
+
 
 const Dashboard = () => {
   const { data: session, status } = useSession();
@@ -27,7 +33,10 @@ const Dashboard = () => {
   }, []);
 
   const [dropdownVisible, setDropdownVisible] = useState<boolean>(false);
-
+  const [menuOpen, setMenuOpen] = useState<boolean>(false); //state for hamburger menu
+  const toggleMenu = (): void => {
+    setMenuOpen((prev) => !prev);
+  };
   const toggleDropdown = (): void => {
     setDropdownVisible((prev) => !prev);
   };
@@ -38,7 +47,9 @@ const Dashboard = () => {
 
   return (
     <div>
+
       <Navbar />
+
       {/* Cards Section */}
       <div className="container mx-auto px-4 py-8 text-black">
         {/* Cards Row */}

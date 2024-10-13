@@ -7,6 +7,7 @@ _LapProFix_ is a open source web application designed to provide users with a co
 - [Features](#features)
 - [Technologies Used](#technologies-used)
 - [Hacktoberfest](#hacktoberfest)
+- [Contributors](#-our-contributors)
 
 ## Guidelines
 ### 🚀 How to Contribute
@@ -126,6 +127,17 @@ Make sure your PRs are:
 - **Focused**: Try to keep them small and meaningful.
 - **High-Quality**: Test your changes and follow best practices.
 
+## 👀 Our Contributors
+
+- We extend our heartfelt gratitude for your invaluable contribution to our project! Your efforts play a pivotal role in elevating LapProFix to greater heights.
+- Make sure you show some love by giving ⭐ to our repository.
+
+<div align="center">
+  <a href="https://github.com/VishnuAmit/LapProFix">
+    <img src="https://contrib.rocks/image?repo=VishnuAmit/LapProFix&&max=1000" />
+  </a>
+</div>
+<br><br>
   
 **Happy Coding 💻 and we look forward to your contributions during **Hacktoberfest 2024**! 🎃**
 
