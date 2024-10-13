@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation";
 import FAQPage from "@/components/Faq/Faqs";
 import Image from "next/image";
 import { FaMapMarkerAlt } from 'react-icons/fa';
-import { FiPhoneCall } from 'react-icons/fi';
+import { FiPhoneCall} from 'react-icons/fi';
 
 const Dashboard = () => {
   const { data: session, status } = useSession();
