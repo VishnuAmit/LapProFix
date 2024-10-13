@@ -63,6 +63,7 @@ export default function RootLayout({
     <html suppressHydrationWarning lang="en">
       <head />
       <body className={`bg-[#FCFCFC] dark:bg-black ${inter.className}`}>
+        <ServiceProvider >
         <GProvider>
         <Providers>
           {isHomepage && <Header />} {/* Render Header only on homepage */}
@@ -71,10 +72,13 @@ export default function RootLayout({
           {isHomepage &&<ScrollToTop />} 
         </Providers>
         </GProvider>
+        </ServiceProvider>
       </body>
     </html>
   );
 }
 
 import { Providers } from "./providers";
+import ServiceProvider from "./services/themeProvider";
+import Navbar from "@/components/Navbar";
 
