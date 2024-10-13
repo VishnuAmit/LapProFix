@@ -6,6 +6,8 @@ import { signOut, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import FAQPage from "@/components/Faq/Faqs";
 import Image from "next/image";
+import { FaMapMarkerAlt } from 'react-icons/fa';
+import { FiPhoneCall} from 'react-icons/fi';
 
 const Dashboard = () => {
   const { data: session, status } = useSession();
@@ -27,7 +29,10 @@ const Dashboard = () => {
   }, []);
 
   const [dropdownVisible, setDropdownVisible] = useState<boolean>(false);
-
+  const [menuOpen, setMenuOpen] = useState<boolean>(false); //state for hamburger menu
+  const toggleMenu = (): void => {
+    setMenuOpen((prev) => !prev);
+  };
   const toggleDropdown = (): void => {
     setDropdownVisible((prev) => !prev);
   };
@@ -42,16 +47,16 @@ const Dashboard = () => {
       <nav className="dark:bg-gray-800 bg-white antialiased">
         <div className="mx-auto max-w-screen-xl px-4 py-4 2xl:px-0">
           <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-8">
+            <div className="flex items-center space-x-4 w-full">
               <div className="shrink-0">
                 <a href="#" title="">
-                <Image
-  className="dark:hidden block h-8 w-auto"
-  src="https://flowbite.s3.amazonaws.com/blocks/e-commerce/logo-full.svg"
-  alt=""
-  width={32}  
-  height={32} 
-/>
+                  <Image
+                    className="dark:hidden block h-8 w-auto"
+                    src="https://flowbite.s3.amazonaws.com/blocks/e-commerce/logo-full.svg"
+                    alt=""
+                    width={32}
+                    height={32}
+                  />
 
                   <Image
                     className="dark:block hidden h-8 w-auto"
@@ -62,7 +67,7 @@ const Dashboard = () => {
                   />
                 </a>
               </div>
-              <ul className="hidden items-center justify-start gap-6 py-3 sm:justify-center md:gap-8 lg:flex">
+              {/* <ul className="hidden items-center justify-start gap-6 py-3 sm:justify-center md:gap-8 lg:flex">
                 <li>
                   <a
                     href="#"
@@ -108,7 +113,46 @@ const Dashboard = () => {
                     Sell
                   </a>
                 </li>
-              </ul>
+              </ul> */}
+              <div className="flex items-center space-x-4 lg:space-x-4 w-full">
+                {/* Search Bar - MADE WIDER */}
+                <div className="relative flex-grow mr-5 mx-5">
+                  <input
+                    type="text"
+                    placeholder="Noida, India" // Updated placeholder
+                    className="pl-10 pr-4 py-2 rounded-lg border border-blue-400 bg-white text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white dark:border-gray-600 w-full" // Padding adjusted for icon
+                  />
+                  {/* Location Icon inside the search bar */}
+                  <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500">
+                    <FaMapMarkerAlt />
+                  </span>
+                  <button className="absolute right-1 top-1/2 transform -translate-y-1/2 bg-blue-500 hover:bg-blue-600 text-white rounded-lg p-2 transition duration-200">
+                    <svg
+                      className="w-5 h-5"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M21 21l-4.35-4.35M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16z"
+                      />
+                    </svg>
+                  </button>
+                </div>
+                <div className="hidden lg:flex items-center space-x-2">
+                  <span className="hidden  lg:flex text-sm font-medium text-gray-900 dark:text-white">
+                    Call Us:
+                  </span>
+                  <span className="hidden  lg:flex me-2 text-sm font-bold text-blue-500 dark:text-blue-400">
+                    +1 234 567 890
+                  </span>
+                </div>
+              </div>
+              {/* END OF SEARCH BAR AND CALL TAG    */}
             </div>
 
             <div className="flex items-center lg:space-x-2">
@@ -234,7 +278,7 @@ const Dashboard = () => {
                 </div>
               )}
 
-              <button
+              {/* <button
                 type="button"
                 data-collapse-toggle="ecommerce-navbar-menu-1"
                 aria-controls="ecommerce-navbar-menu-1"
@@ -261,7 +305,44 @@ const Dashboard = () => {
               </button>
             </div>
           </div>
+        </div> */}
+              <button
+                onClick={toggleMenu}
+                className="lg:hidden inline-flex items-center justify-center p-2 rounded-md text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-gray-500 dark:text-white dark:hover:bg-gray-700"
+              >
+                <span className="sr-only">Open main menu</span>
+                <svg
+                  className="h-6 w-6"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+              </button>
+            </div>
+          </div>
         </div>
+
+        {/* Mobile Menu */}
+        {menuOpen && (
+          <div className="lg:hidden fixed inset-x-0 top-16 z-20 bg-white shadow-lg">
+            <div className="flex flex-col p-4">
+              {/* Call Us section with icon and phone number */}
+              <div className="flex items-center py-4">
+                {/* Phone Icon from React Icons */}
+                <FiPhoneCall className="w-5 h-5 mr-2 text-gray-500" />
+
+                {/* Phone Number */}
+                <span className="font-bold text-blue-500">+1 234 567 890</span>
+              </div>
+            </div>
+          </div>
+        )}
       </nav>
 
       {/* Cards Section */}
