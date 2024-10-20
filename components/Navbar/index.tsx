@@ -28,19 +28,13 @@ const Navbar = () => {
                 <a href="#" title="">
                 <Image
                   className="dark:hidden block h-8 w-auto"
-                  src="https://flowbite.s3.amazonaws.com/blocks/e-commerce/logo-full.svg"
+                  src="images/logo/logodash.svg"
                   alt=""
-                  width={32}  
-                  height={32} 
+                  width={512}  
+                  height={512} 
                 />
 
-                  <Image
-                    className="dark:block hidden h-8 w-auto"
-                    src="https://flowbite.s3.amazonaws.com/blocks/e-commerce/logo-full-dark.svg"
-                    alt=""
-                    width={32}  // Specify the width you want (adjust as needed)
-                    height={32}
-                  />
+          
                 </a>
               </div>
               <ul className="hidden items-center justify-start gap-6 py-3 sm:justify-center md:gap-8 lg:flex">

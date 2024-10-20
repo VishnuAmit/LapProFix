@@ -79,7 +79,7 @@ const Pricing = () => {
             packageName="Standard"
             price={isMonthly ? "1000" : "11000"}
             duration={isMonthly ? "mo" : "yr"}
-            subtitle="Covers hardware repairs, component replacements, and system optimization, offering a balanced approach for more complex issues at a mid-range price"
+            subtitle="Covers hardware repairs and component replacements offering a balanced approach for more complex issues at a mid-range price"
           >
 <OfferList text="Standard Repair Package" status="active" />
 <OfferList text="Comprehensive Hardware Repairs" status="active" />
@@ -101,7 +101,7 @@ const Pricing = () => {
 <OfferList text="Priority Support" status="active" />
 <OfferList text="Email Support" status="active" />
 <OfferList text="Lifetime Access" status="active" />
-<OfferList text="Free Lifetime Updates" status="active" />
+{/* <OfferList text="Free Lifetime Updates" status="active" /> */}
 
           </PricingBox>
         </div>
