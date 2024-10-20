@@ -30,8 +30,9 @@ const Navbar = () => {
                   className="dark:hidden block h-8 w-auto"
                   src="images/logo/logodash.svg"
                   alt=""
-                  width={512}  
-                  height={512} 
+                  width={25}  
+                  height={25} 
+                  style={{ transform: 'scale(1.2)', transformOrigin: 'left' }}
                 />
 
           
