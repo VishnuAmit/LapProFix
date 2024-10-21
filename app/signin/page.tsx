@@ -3,7 +3,9 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { signIn, signOut, useSession, getProviders } from "next-auth/react";
+import { signIn, useSession, getProviders } from "next-auth/react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 
 interface ProviderType {
   name: string;
@@ -12,9 +14,14 @@ interface ProviderType {
 
 const SigninPage = () => {
   const router = useRouter();
-  const [error, setError] = useState<string>(""); // Set error state type to string
+  const [error, setError] = useState<string>("");
   const { data: session } = useSession();
-  const [providers, setProviders] = useState<ProviderType[] | null>(null);
+  const [providers, setProviders] = useState<ProviderType[]>([]);
+  const [showPassword, setShowPassword] = useState(false);
+
+const togglePasswordVisibility = () => {
+  setShowPassword((prev) => !prev);
+};
 
   useEffect(() => {
     const fetchProviders = async () => {
@@ -31,7 +38,6 @@ const SigninPage = () => {
   }, []);
 
   useEffect(() => {
-    console.log(session);
     if (session) {
       router.push("/dashboard");
     }
@@ -57,10 +63,12 @@ const SigninPage = () => {
       } else {
         router.push("/dashboard");
       }
-    } catch (e) {
+    } catch {
       setError("Check your Credentials");
     }
   }
+
+
 
   return (
     <>
@@ -152,19 +160,31 @@ const SigninPage = () => {
                       className="dark:border-transparent dark:bg-[#2C303B] dark:text-body-color-dark dark:shadow-two dark:focus:border-primary dark:focus:shadow-none w-full rounded-sm border border-stroke bg-[#f8f8f8] px-6 py-3 text-base text-body-color outline-none transition-all duration-300 focus:border-primary"
                     />
                   </div>
-                  <div className="mb-8">
+                  <div className="mb-6">
                     <label
                       htmlFor="password"
                       className="dark:text-white mb-3 block text-sm text-dark"
                     >
                       Your Password
                     </label>
-                    <input
-                      type="password"
-                      name="password"
-                      placeholder="Enter your Password"
-                      className="dark:border-transparent dark:bg-[#2C303B] dark:text-body-color-dark dark:shadow-two dark:focus:border-primary dark:focus:shadow-none w-full rounded-sm border border-stroke bg-[#f8f8f8] px-6 py-3 text-base text-body-color outline-none transition-all duration-300 focus:border-primary"
-                    />
+                    <div className="relative">
+                      <input
+                        type={showPassword ? "text" : "password"}
+                        name="password"
+                        placeholder="Enter your Password"
+                        className="dark:border-transparent dark:bg-[#2C303B] dark:text-body-color-dark dark:shadow-two dark:focus:border-primary dark:focus:shadow-none w-full rounded-sm border border-stroke bg-[#f8f8f8] px-5 py-3 text-base text-body-color outline-none transition-all duration-300 placeholder:text-body-color focus:border-primary focus:bg-white"
+                        required
+                      />
+                      <span
+                        className="absolute right-3 top-1/2 -translate-y-1/2 cursor-pointer"
+                        onClick={togglePasswordVisibility}
+                      >
+                        <FontAwesomeIcon
+                          icon={showPassword ? faEye : faEyeSlash}
+                          className="text-gray-500"
+                        />
+                      </span>
+                    </div>
                   </div>
                   {error && (
                     <p className="mb-4 text-center text-red-500">{error}</p>
@@ -289,5 +309,6 @@ const SigninPage = () => {
     </>
   );
 };
+
 
 export default SigninPage;

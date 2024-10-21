@@ -4,6 +4,8 @@ import Link from "next/link";
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation"; // Import useRouter
 import { signIn, signOut, useSession, getProviders } from "next-auth/react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 
 const SignupPage = () => {
   const [name, setName] = useState<string>("");
@@ -11,6 +13,11 @@ const SignupPage = () => {
   const [password, setPassword] = useState<string>("");
   const [errorMessage, setErrorMessage] = useState<string>(""); // State for error message
   const router = useRouter(); // Initialize useRouter
+  const [showPassword, setShowPassword] = useState(false);
+
+  const togglePasswordVisibility = () => {
+    setShowPassword((prev) => !prev);
+  };
 
   interface ProviderType {
     name: string;
@@ -162,21 +169,33 @@ const SignupPage = () => {
                   />
                 </div>
                 <div className="mb-8">
-                  <label
-                    htmlFor="password"
-                    className="dark:text-white mb-3 block text-sm text-dark"
-                  >
-                    Password
-                  </label>
-                  <input
-                    type="password"
-                    name="password"
-                    placeholder="Enter your password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    className="dark:text-body-color-dark dark:shadow-two dark:border-transparent dark:bg-[#2C303B] dark:focus:border-primary dark:focus:shadow-none w-full rounded-sm border border-stroke bg-[#f8f8f8] px-6 py-3 text-base text-body-color outline-none transition-all duration-300 focus:border-primary"
-                  />
-                </div>
+      <label
+        htmlFor="password"
+        className="dark:text-white mb-3 block text-sm text-dark"
+      >
+        Password
+      </label>
+      <div className="relative">
+        <input
+          type={showPassword ? "text" : "password"}
+          name="password"
+          placeholder="Enter your password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          className="dark:text-body-color-dark dark:shadow-two dark:border-transparent dark:bg-[#2C303B] dark:focus:border-primary dark:focus:shadow-none w-full rounded-sm border border-stroke bg-[#f8f8f8] px-6 py-3 text-base text-body-color outline-none transition-all duration-300 focus:border-primary"
+        />
+        <span
+          className="absolute right-3 top-1/2 -translate-y-1/2 cursor-pointer"
+          onClick={togglePasswordVisibility}
+        >
+          <FontAwesomeIcon
+            icon={showPassword ? faEye : faEyeSlash}
+            className="text-gray-500"
+          />
+        </span>
+      </div>
+    </div>
+                
                 {errorMessage && (
                   <p className="my-4 text-center text-sm text-red-500">
                     {errorMessage}
