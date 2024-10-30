@@ -26,7 +26,7 @@
     "flowbite-react": "^0.10.2",
     "jsonwebtoken": "^9.0.2",
     "mdb-react-ui-kit": "^9.0.0",
-    "mongodb": "^6.9.0",
+    "mongodb": "^6.10.0",
     "mongoose": "^8.7.2",
     "next": "^14.2.16",
     "next-auth": "^4.24.8",
