@@ -45,7 +45,7 @@
     "@types/react": "^18.2.33",
     "autoprefixer": "^10.4.16",
     "eslint": "^8.57.0",
-    "eslint-config-next": "^14.2.15",
+    "eslint-config-next": "^15.0.2",
     "husky": "^9.1.6",
     "lint-staged": "^15.2.10",
     "postcss": "^8.4.31",
