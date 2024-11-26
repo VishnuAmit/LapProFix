@@ -30,10 +30,8 @@ importers:
         specifier: ^2.1.5
         version: 2.1.5(react@18.3.1)
       '@mui/icons-material':
-
         specifier: ^6.1.6
-        version: 6.1.6(@mui/material@6.1.6(@emotion/react@11.13.3(@types/react@18.3.11)(react@18.3.1))(@emotion/styled@11.13.0(@emotion/react@11.13.3(@types/react@18.3.11)(react@18.3.1))(@types/react@18.3.11)(react@18.3.1))(@types/react@18.3.11)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@types/react@18.3.11)(react@18.3.1)
-
+        version: 6.1.6(@mui/material@6.1.6(@emotion/react@11.13.3(@types/react@18.3.12)(react@18.3.1))(@emotion/styled@11.13.0(@emotion/react@11.13.3(@types/react@18.3.12)(react@18.3.1))(@types/react@18.3.12)(react@18.3.1))(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@types/react@18.3.12)(react@18.3.1)
       '@mui/material':
         specifier: ^6.1.6
         version: 6.1.6(@emotion/react@11.13.3(@types/react@18.3.12)(react@18.3.1))(@emotion/styled@11.13.0(@emotion/react@11.13.3(@types/react@18.3.12)(react@18.3.1))(@types/react@18.3.12)(react@18.3.1))(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -826,9 +824,6 @@ packages:
 
   '@types/react-transition-group@4.4.11':
     resolution: {integrity: sha512-RM05tAniPZ5DZPzzNFP+DmrcOdD0efDUxMy3145oljWSl3x9ZV5vhme98gTxFrj2lhXvmGNnUiuDyJgY9IKkNA==}
-
-  '@types/react@18.3.11':
-    resolution: {integrity: sha512-r6QZ069rFTjrEYgFdOck1gK7FLVsgJE7tTz0pQBczlBNUhBNk0MQH4UbnFSwjpQLMkLzgqvBBa+qGpLje16eTQ==}
 
   '@types/react@18.3.12':
     resolution: {integrity: sha512-D2wOSq/d6Agt28q7rSI3jhU7G6aiuzljDGZ2hTZHIkrTLUI+AF3WMeKkEZ9nN2fkBAlcktT6vcZjDFiIhMYEQw==}
@@ -3717,11 +3712,10 @@ snapshots:
 
   '@mui/core-downloads-tracker@6.1.6': {}
 
-
-  '@mui/icons-material@6.1.6(@mui/material@6.1.6(@emotion/react@11.13.3(@types/react@18.3.11)(react@18.3.1))(@emotion/styled@11.13.0(@emotion/react@11.13.3(@types/react@18.3.11)(react@18.3.1))(@types/react@18.3.11)(react@18.3.1))(@types/react@18.3.11)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@types/react@18.3.11)(react@18.3.1)':
+  '@mui/icons-material@6.1.6(@mui/material@6.1.6(@emotion/react@11.13.3(@types/react@18.3.12)(react@18.3.1))(@emotion/styled@11.13.0(@emotion/react@11.13.3(@types/react@18.3.12)(react@18.3.1))(@types/react@18.3.12)(react@18.3.1))(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@types/react@18.3.12)(react@18.3.1)':
     dependencies:
       '@babel/runtime': 7.26.0
-      '@mui/material': 6.1.6(@emotion/react@11.13.3(@types/react@18.3.11)(react@18.3.1))(@emotion/styled@11.13.0(@emotion/react@11.13.3(@types/react@18.3.11)(react@18.3.1))(@types/react@18.3.11)(react@18.3.1))(@types/react@18.3.11)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@mui/material': 6.1.6(@emotion/react@11.13.3(@types/react@18.3.12)(react@18.3.1))(@emotion/styled@11.13.0(@emotion/react@11.13.3(@types/react@18.3.12)(react@18.3.1))(@types/react@18.3.12)(react@18.3.1))(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react: 18.3.1
     optionalDependencies:
       '@types/react': 18.3.12
@@ -3951,16 +3945,11 @@ snapshots:
 
   '@types/react-dom@18.3.0':
     dependencies:
-      '@types/react': 18.3.11
+      '@types/react': 18.3.12
 
   '@types/react-transition-group@4.4.11':
     dependencies:
       '@types/react': 18.3.12
-
-  '@types/react@18.3.11':
-    dependencies:
-      '@types/prop-types': 15.7.13
-      csstype: 3.1.3
 
   '@types/react@18.3.12':
     dependencies:
